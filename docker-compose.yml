@@ -1,0 +1,27 @@
+version: '3'
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - menu-service
+      - order-service
+      - inventory-service
+      - customer-service
+      - payment-service
+
+  menu-service:
+    build: ./menu-services
+
+  order-service:
+    build: ./order-services
+
+  inventory-service:
+    build: ./inventory-services
+
+  customer-service:
+    build: ./customer-services
+
+  payment-service:
+    build: ./payment-services

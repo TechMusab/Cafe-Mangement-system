@@ -50,17 +50,13 @@ app.get('/customers/:id', async (req, res) => {
   if (!customer) return res.status(404).json({ error: 'Customer not found' });
   res.json(customer);
 });
-/*
- */
 
 app.post('/customers/update-points', async (req, res) => {
   const { customerId, points } = req.body;
   if (!customerId || points == null) {
     return res.status(400).json({ error: 'Customer ID and points required' });
   }
-  /*
 
-      */
   try {
     const customer = await Customer.findOne({ id: customerId });
     if (!customer) {
@@ -75,10 +71,7 @@ app.post('/customers/update-points', async (req, res) => {
     res.status(500).json({ error: 'Failed to update loyalty points' });
   }
 });
-/*
 
-
-*/
 app.listen(port, () => {
   console.log(`Customer Service running on port ${port}`);
 });
